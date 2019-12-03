@@ -1,0 +1,27 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/motoristas" routerLinkActive="active"><mat-icon>filter_tilt_shift</mat-icon><span>Motoristas</span></a>
+      <a mat-list-item href="#" routerLinkActive="active"><mat-icon>commute</mat-icon><span>Viaturas</span></a>
+      <a mat-list-item href="#" routerLinkActive="active"><mat-icon>person</mat-icon><span>Usuários</span></a>
+      <a mat-list-item href="#" routerLinkActive="active"><mat-icon>perm_phone_msg</mat-icon><span>Pedidos</span></a>
+      <a mat-list-item href="#" routerLinkActive="active"><mat-icon>pie_chart</mat-icon><span>Dashboard</span></a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Sistema de Controle de Garagem</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

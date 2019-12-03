@@ -1,0 +1,95 @@
+
+<a mat-fab class="button-add" routerLink="/motoristas/cadastro" matTooltip="Cadastrar Motorista"><mat-icon>add</mat-icon></a>
+
+<div fxLayout="column">
+  <h1 class="titulo-lista" fxFlexAlign="center">Listagem de Motoristas</h1>
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar">
+  </mat-form-field>
+</div>
+
+<mat-table [dataSource]="dataSource" matSort>
+
+  <mat-header-row *matHeaderRowDef="colunas"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: colunas;"></mat-row>
+
+  <ng-container matColumnDef="identidade">
+    <mat-header-cell *matHeaderCellDef>
+      Identidade
+    </mat-header-cell>
+    <mat-cell *matCellDef="let motorista">
+      {{ motorista.identidade }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="postoGraduacaoMotorista">
+    <mat-header-cell *matHeaderCellDef>
+      Posto/Grad
+    </mat-header-cell>
+    <mat-cell *matCellDef="let motorista" ngStyle="">
+      {{ motorista.postoGraduacaoMotorista.postoGrad }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="nomeCompleto">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>
+      Nome Completo
+    </mat-header-cell>
+    <mat-cell *matCellDef="let motorista">
+      {{ motorista.nomeCompleto | uppercase }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="nomeDeGuerra">
+    <mat-header-cell *matHeaderCellDef>
+      Nome de Guerra
+    </mat-header-cell>
+    <mat-cell *matCellDef="let motorista">
+      {{ motorista.nomeDeGuerra | uppercase }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="statusMotorista">
+    <mat-header-cell *matHeaderCellDef>
+      Status
+    </mat-header-cell>
+    <mat-cell *matCellDef="let motorista">
+      <button mat-flat-button disabled
+      [ngClass]="{'verde': motorista.statusMotorista === 'PRONTO',
+      'vermelho': motorista.statusMotorista !== 'PRONTO'
+      }">
+        {{ motorista.statusMotorista | statusMotorista }}
+    </button>
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="categoriaCNH">
+    <mat-header-cell *matHeaderCellDef>
+      Categoria CNH
+    </mat-header-cell>
+    <mat-cell *matCellDef="let motorista">
+      {{ motorista.categoriaCNH }}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="options">
+    <mat-header-cell *matHeaderCellDef>
+
+    </mat-header-cell>
+    <mat-cell *matCellDef="let motorista" fxLayoutGap="10px">
+      <button mat-icon-button color="accent" (click)="onDialogUpdate(motorista)" matTooltip="Editar Motorista">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="onDialogDelete(motorista)" matTooltip="Deletar Motorista">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+</mat-table>
+
+<mat-paginator
+  #paginator
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 15, 25, 50]">
+</mat-paginator>

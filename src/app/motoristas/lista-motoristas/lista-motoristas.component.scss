@@ -1,0 +1,44 @@
+.verde {
+  background-color: rgb(124, 243, 124) !important;
+  width: 105px;
+  color: black !important;
+}
+
+.vermelho {
+  background-color: rgb(212, 55, 55) !important;
+  width: 105px;
+  color: black !important;
+}
+
+.mat-column-identidade {
+  max-width: 120px;
+}
+
+.mat-column-postoGraduacaoMotorista {
+  max-width: 160px;
+  justify-content: center;
+  margin-right: 80px;
+}
+
+.mat-column-nomeDeGuerra {
+  max-width: 280px;
+  justify-content: center;
+}
+
+.mat-column-statusMotorista {
+  max-width: 150px;
+  justify-content: center;
+}
+
+.mat-column-categoriaCNH {
+  max-width: 150px;
+  justify-content: center;
+}
+
+.mat-column-options {
+  max-width: 90px;
+}
+
+.mat-form-field{
+  margin: 0 10px;
+}
