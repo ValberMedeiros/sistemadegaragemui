@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.titulo-lista{
+  color: rgb(121, 118, 118);
+}
+
+.button-add {
+  position: absolute !important;
+  top: 80px !important;
+  right: 40px !important;
+  background-color: rgb(27, 235, 61) !important;
+}
+
+.mat-card-title{
+  color: rgb(121, 118, 118);
+}
+
+.active {
+  background-color: #066e00;
+  color: aliceblue !important;
+}
+
+.mat-toolbar {
+  background-color: #066e00 !important;
+  color: aliceblue !important;
+}
+
+.mat-nav-list {
+  margin-top: -7px;
+  font-weight: bold;
+  color: rgb(121, 118, 118);
+}
+
+.mat-nav-list span{
+  margin-left: 6px;
+}
