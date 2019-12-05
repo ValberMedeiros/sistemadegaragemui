@@ -1,0 +1,40 @@
+.verde {
+  background-color: rgb(124, 243, 124) !important;
+  width: 105px;
+  color: black !important;
+}
+
+.vermelho {
+  background-color: rgb(212, 55, 55) !important;
+  width: 105px;
+  color: black !important;
+}
+
+.mat-column-modelo {
+  max-width: 400px;
+}
+
+.mat-column-placa {
+  max-width: 220px;
+  justify-content: center;
+}
+
+.mat-column-capacidadePassageiros {
+  max-width: 180px;
+  justify-content: center;
+}
+
+.mat-column-utilizacao {
+  max-width: 300px;
+  justify-content: center;
+}
+
+.mat-column-statusViatura {
+  max-width: 180px;
+  justify-content: center;
+}
+
+.mat-column-options {
+  max-width: 140px;
+  justify-content: center;
+}

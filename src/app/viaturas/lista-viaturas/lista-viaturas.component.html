@@ -1,9 +1,9 @@
 
-<a mat-fab class="button-add" routerLink="/motoristas/cadastro" matTooltip="Cadastrar Motorista"><mat-icon>add</mat-icon></a>
+<a mat-fab class="button-add" routerLink="/viaturas/cadastro" matTooltip="Cadastrar Viaturas"><mat-icon>add</mat-icon></a>
 
 <div fxLayout="column">
-  <h1 class="titulo-lista" fxFlexAlign="center">Listagem de Motoristas</h1>
-  <mat-form-field>
+  <h1 class="titulo-lista" fxFlexAlign="center">Listagem de Viaturas</h1>
+  <mat-form-field style="margin-left: 9px">
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar">
   </mat-form-field>
 </div>
@@ -13,53 +13,53 @@
   <mat-header-row *matHeaderRowDef="colunas"></mat-header-row>
   <mat-row *matRowDef="let row; columns: colunas;"></mat-row>
 
-  <ng-container matColumnDef="identidade">
+  <ng-container matColumnDef="modelo">
     <mat-header-cell *matHeaderCellDef>
-      Identidade
+      Modelo
     </mat-header-cell>
-    <mat-cell *matCellDef="let motorista">
-      {{ motorista.identidade }}
+    <mat-cell *matCellDef="let viaturas">
+      {{ viaturas.modelo | uppercase  }}
     </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="postoGraduacaoMotorista">
+  <ng-container matColumnDef="placa">
     <mat-header-cell *matHeaderCellDef>
-      Posto/Grad
+      Placa
     </mat-header-cell>
-    <mat-cell *matCellDef="let motorista" ngStyle="">
-      {{ motorista.postoGraduacaoMotorista.postoGrad | uppercase}}
+    <mat-cell *matCellDef="let viaturas">
+      {{ viaturas.placa | uppercase  }}
     </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="nomeCompleto">
+  <ng-container matColumnDef="capacidadePassageiros">
     <mat-header-cell *matHeaderCellDef mat-sort-header>
-      Nome Completo
+      Capacidade de Passageiros
     </mat-header-cell>
-    <mat-cell *matCellDef="let motorista">
-      {{ motorista.nomeCompleto | uppercase }}
+    <mat-cell *matCellDef="let viaturas">
+      {{ viaturas.capacidadePassageiros}}
     </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="nomeDeGuerra">
+  <ng-container matColumnDef="utilizacao">
     <mat-header-cell *matHeaderCellDef>
-      Nome de Guerra
+      Utilização
     </mat-header-cell>
-    <mat-cell *matCellDef="let motorista">
-      {{ motorista.nomeDeGuerra | uppercase }}
+    <mat-cell *matCellDef="let viaturas">
+      {{ viaturas.utilizacao | uppercase }}
     </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="statusMotorista">
+  <ng-container matColumnDef="statusViatura">
     <mat-header-cell *matHeaderCellDef>
       Status
     </mat-header-cell>
-    <mat-cell *matCellDef="let motorista">
+    <mat-cell *matCellDef="let viaturas">
       <button mat-flat-button disabled
-      [ngClass]="{'verde': motorista.statusMotorista === 'PRONTO',
-      'vermelho': motorista.statusMotorista !== 'PRONTO'
+              [ngClass]="{'verde': viaturas.statusViatura === 'PRONTA',
+      'vermelho': viaturas.statusViatura !== 'PRONTA'
       }">
-        {{ motorista.statusMotorista | statusMotorista }}
-    </button>
+        {{ viaturas.statusViatura | statusViatura }}
+      </button>
     </mat-cell>
   </ng-container>
 
@@ -67,8 +67,8 @@
     <mat-header-cell *matHeaderCellDef>
       Categoria CNH
     </mat-header-cell>
-    <mat-cell *matCellDef="let motorista">
-      {{ motorista.categoriaCNH }}
+    <mat-cell *matCellDef="let viaturas">
+      {{ viaturas.categoriaCNH }}
     </mat-cell>
   </ng-container>
 
@@ -77,10 +77,13 @@
 
     </mat-header-cell>
     <mat-cell *matCellDef="let motorista" fxLayoutGap="10px">
-      <button mat-icon-button color="accent" (click)="onDialogUpdate(motorista)" matTooltip="Editar Motorista">
+      <button mat-icon-button color="primary" matTooltip="Detalhar Viatura">
+        <mat-icon>visibility</mat-icon>
+      </button>
+      <button mat-icon-button color="accent" matTooltip="Editar Viatura">
         <mat-icon>edit</mat-icon>
       </button>
-      <button mat-icon-button color="warn" (click)="onDialogDelete(motorista)" matTooltip="Deletar Motorista">
+      <button mat-icon-button color="warn" matTooltip="Deletar Viatura">
         <mat-icon>delete</mat-icon>
       </button>
     </mat-cell>
