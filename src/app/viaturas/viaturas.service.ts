@@ -18,8 +18,12 @@ export class ViaturasService {
     return this.http.get<Viaturas[]>(this.url);
   }
 
-  cadastrar(viaturas: Viaturas): Observable<Viaturas> {
-    return this.http.post<Viaturas>(this.url, viaturas);
+  cadastrar(viatura: Viaturas): Observable<Viaturas> {
+    return this.http.post<Viaturas>(this.url, viatura);
+  }
+
+  deletar(viatura: Viaturas): Observable<Viaturas> {
+    return this.http.delete<Viaturas>(`${this.url}/${viatura.id}`);
   }
 
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CadastroViaturasComponent } from './cadastro-viaturas/cadastro-viaturas.component';
 import {MaterialModule} from '../material.module';
-import { ListaViaturasComponent } from './lista-viaturas/lista-viaturas.component';
+import {ConfirmDialog, ListaViaturasComponent} from './lista-viaturas/lista-viaturas.component';
 import {SharedModule} from '../shared/shared.module';
 import {StatusViaturaPipe} from '../shared/pipes/status-viatura.pipe';
 import {CdkColumnDef} from '@angular/cdk/table';
@@ -22,6 +22,7 @@ const appRouter: Routes = [
     CadastroViaturasComponent,
     ListaViaturasComponent,
     StatusViaturaPipe,
+    ConfirmDialog
   ],
   exports: [
 
@@ -39,6 +40,9 @@ const appRouter: Routes = [
   providers: [
     CdkColumnDef,
     { provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl }
+  ],
+  entryComponents: [
+    ConfirmDialog
   ]
 })
 export class ViaturasModule { }

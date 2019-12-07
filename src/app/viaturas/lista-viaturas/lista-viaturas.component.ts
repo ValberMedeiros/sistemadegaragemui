@@ -1,7 +1,7 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {MotoristasService} from "../../motoristas/motoristas.service";
 import {Router} from "@angular/router";
-import {MatDialog} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {Motoristas} from "../../motoristas/models/Motoristas.model";
 import {MatTableDataSource} from "@angular/material/table";
@@ -55,4 +55,43 @@ export class ListaViaturasComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  onDialogDelete(viatura: Viaturas) {
+    const dialog = this.dialog.open(ConfirmDialog, {
+      height: '150px',
+      width: '310px'
+    });
+    dialog.afterClosed().subscribe(remover => {
+      if (remover) {
+        this.onDelete(viatura);
+      }
+    });
+  }
+
+  onDelete(viatura: Viaturas) {
+    this.viaturasService.deletar(viatura)
+      .subscribe( () => {
+        const msg = 'Viatura deletada com sucesso!';
+        this.snackBar.open(msg, 'succeso',  { duration: 3000 });
+        this.listar();
+      })
+  }
+}
+
+@Component({
+  selector: 'confirm-dialog',
+  template: `
+    <h1 mat-dialog-title> Deseja remover a viatura? </h1>
+    <div mat-dialog-actions fxLayout="row" fxLayoutAlign="center center">
+      <button mat-button [mat-dialog-close]="false" tabindex="-1">
+        Não
+      </button>
+      <button mat-button color="warn" [mat-dialog-close]="true" tabindex="2">
+        Sim
+      </button>
+    </div>
+  `
+})
+export class ConfirmDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
+  }
 }
