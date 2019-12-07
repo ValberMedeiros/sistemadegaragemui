@@ -11,6 +11,7 @@ import {MatPaginatorIntl} from '@angular/material/paginator';
 import {RouterModule, Routes} from '@angular/router';
 import {MatTableModule} from '@angular/material/table';
 import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 const appRouter: Routes = [
 
@@ -32,6 +33,8 @@ const appRouter: Routes = [
     RouterModule.forChild(appRouter),
     MatTableModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     CdkColumnDef,

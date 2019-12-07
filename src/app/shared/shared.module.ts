@@ -1,19 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StatusMotoristaPipe } from './pipes/status-motorista.pipe';
-import { PtBrMatPaginatorIntl } from "./pt-br-mat-paginator-intl";
+import {CombustivelPipe} from "./pipes/combustivel.pipe";
 
 
 
 @NgModule({
   declarations: [
-    StatusMotoristaPipe
+    StatusMotoristaPipe,
+    CombustivelPipe
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    StatusMotoristaPipe
+    StatusMotoristaPipe,
+    CombustivelPipe
   ]
 })
 export class SharedModule { }
