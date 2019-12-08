@@ -26,4 +26,12 @@ export class ViaturasService {
     return this.http.delete<Viaturas>(`${this.url}/${viatura.id}`);
   }
 
+  buscarPorId(id: number): Observable<Viaturas> {
+    return this.http.get<Viaturas>(`${this.url}/${id}`);
+  }
+
+  atualizar(viatura: Viaturas): Observable<Viaturas> {
+    return this.http.put<Viaturas>(`${this.url}/${viatura.id}`, viatura);
+  }
+
 }

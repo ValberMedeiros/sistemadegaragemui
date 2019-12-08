@@ -50,6 +50,7 @@ export class AtualizarMotoristasComponent implements OnInit {
     this.motoristasService.buscarPorId(this.motorista.id)
       .subscribe(
         dados => {
+          this.motoristaForm.get('id').setValue(dados.id);
           this.postoGraduacao.push(dados.postoGraduacaoMotorista);
           this.motoristaForm.get('identidade').setValue(dados.identidade);
           this.motoristaForm.get('nomeCompleto').setValue(dados.nomeCompleto);
@@ -81,6 +82,15 @@ export class AtualizarMotoristasComponent implements OnInit {
   enumToArray(): Object[] {
     return Object.keys(StatusMotorista)
       .map(key => ({ id: StatusMotorista[key], name: key}));
+  }
+
+  onUpdate() {
+    console.log(this.motoristaForm.value);
+    this.motoristasService.atualizar(this.motoristaForm.value)
+      .subscribe(() => {
+        const msg = 'Motorista atualizado com sucesso!';
+        this.snackBar.open(msg, 'Sucesso', { duration: 3000 });
+      });
   }
 
 }

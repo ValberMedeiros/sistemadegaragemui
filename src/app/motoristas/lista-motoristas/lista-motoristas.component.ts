@@ -88,18 +88,9 @@ export class ListaMotoristasComponent implements OnInit {
     });
     dialog.afterClosed().subscribe(atualizar => {
       if (atualizar) {
-        this.onUpdate(motorista);
+        this.listar();
       }
     });
-  }
-
-  onUpdate(motorista: Motoristas) {
-    this.motoristasService.atualizar(motorista)
-      .subscribe(() => {
-        const msg = 'Motorista atualizado com sucesso!';
-        this.snackBar.open(msg, 'Sucesso', { duration: 3000 });
-        this.listar();
-      });
   }
 }
 

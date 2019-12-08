@@ -80,7 +80,7 @@
       <button mat-icon-button color="primary" matTooltip="Detalhar Viatura">
         <mat-icon>visibility</mat-icon>
       </button>
-      <button mat-icon-button color="accent" matTooltip="Editar Viatura">
+      <button mat-icon-button color="accent" matTooltip="Editar Viatura" (click)="onDialogUpdate(viaturas)" matTooltip="Atualizar Viatura">
         <mat-icon>edit</mat-icon>
       </button>
       <button mat-icon-button color="warn" matTooltip="Deletar Viatura"  (click)="onDialogDelete(viaturas)" matTooltip="Deletar Viatura">

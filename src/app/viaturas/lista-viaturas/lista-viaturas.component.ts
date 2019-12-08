@@ -9,6 +9,8 @@ import {MatSort} from "@angular/material/sort";
 import {MatPaginator} from "@angular/material/paginator";
 import {ViaturasService} from "../viaturas.service";
 import {Viaturas} from "../models/Viaturas.model";
+import {AtualizarMotoristasComponent} from "../../motoristas/atualizar-motoristas/atualizar-motoristas.component";
+import {AtualizarViaturasComponent} from "../atualizar-viaturas/atualizar-viaturas.component";
 
 @Component({
   selector: 'app-lista-viaturas',
@@ -67,6 +69,19 @@ export class ListaViaturasComponent implements OnInit {
     });
   }
 
+  onDialogUpdate(viatura: Viaturas) {
+    const dialog = this.dialog.open(AtualizarViaturasComponent, {
+      height: '400px',
+      width: '1300px',
+      data: viatura
+    });
+    dialog.afterClosed().subscribe(atualizar => {
+      if (atualizar) {
+        this.listar();
+      }
+    });
+  }
+
   onDelete(viatura: Viaturas) {
     this.viaturasService.deletar(viatura)
       .subscribe( () => {
@@ -75,6 +90,7 @@ export class ListaViaturasComponent implements OnInit {
         this.listar();
       })
   }
+
 }
 
 @Component({

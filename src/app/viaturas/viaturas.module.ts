@@ -12,6 +12,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {MatTableModule} from '@angular/material/table';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { AtualizarViaturasComponent } from './atualizar-viaturas/atualizar-viaturas.component';
 
 const appRouter: Routes = [
 
@@ -22,7 +23,8 @@ const appRouter: Routes = [
     CadastroViaturasComponent,
     ListaViaturasComponent,
     StatusViaturaPipe,
-    ConfirmDialog
+    ConfirmDialog,
+    AtualizarViaturasComponent
   ],
   exports: [
 
@@ -42,7 +44,8 @@ const appRouter: Routes = [
     { provide: MatPaginatorIntl, useClass: PtBrMatPaginatorIntl }
   ],
   entryComponents: [
-    ConfirmDialog
+    ConfirmDialog,
+    AtualizarViaturasComponent
   ]
 })
 export class ViaturasModule { }
