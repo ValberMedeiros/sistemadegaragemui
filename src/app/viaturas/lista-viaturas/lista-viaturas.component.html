@@ -77,7 +77,7 @@
 
     </mat-header-cell>
     <mat-cell *matCellDef="let viaturas" fxLayoutGap="10px">
-      <button mat-icon-button color="primary" matTooltip="Detalhar Viatura">
+      <button mat-icon-button color="primary" matTooltip="Detalhar Viatura" (click)="onDialogDetails(viaturas)" matTooltip="Detalhes Viatura">
         <mat-icon>visibility</mat-icon>
       </button>
       <button mat-icon-button color="accent" matTooltip="Editar Viatura" (click)="onDialogUpdate(viaturas)" matTooltip="Atualizar Viatura">

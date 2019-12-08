@@ -13,6 +13,7 @@ import {MatTableModule} from '@angular/material/table';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { AtualizarViaturasComponent } from './atualizar-viaturas/atualizar-viaturas.component';
+import { ViaturasDetailsComponent } from './viaturas-details/viaturas-details.component';
 
 const appRouter: Routes = [
 
@@ -24,7 +25,8 @@ const appRouter: Routes = [
     ListaViaturasComponent,
     StatusViaturaPipe,
     ConfirmDialog,
-    AtualizarViaturasComponent
+    AtualizarViaturasComponent,
+    ViaturasDetailsComponent
   ],
   exports: [
 
@@ -45,7 +47,8 @@ const appRouter: Routes = [
   ],
   entryComponents: [
     ConfirmDialog,
-    AtualizarViaturasComponent
+    AtualizarViaturasComponent,
+    ViaturasDetailsComponent
   ]
 })
 export class ViaturasModule { }

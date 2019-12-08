@@ -11,6 +11,7 @@ import {ViaturasService} from "../viaturas.service";
 import {Viaturas} from "../models/Viaturas.model";
 import {AtualizarMotoristasComponent} from "../../motoristas/atualizar-motoristas/atualizar-motoristas.component";
 import {AtualizarViaturasComponent} from "../atualizar-viaturas/atualizar-viaturas.component";
+import {ViaturasDetailsComponent} from "../viaturas-details/viaturas-details.component";
 
 @Component({
   selector: 'app-lista-viaturas',
@@ -71,6 +72,19 @@ export class ListaViaturasComponent implements OnInit {
 
   onDialogUpdate(viatura: Viaturas) {
     const dialog = this.dialog.open(AtualizarViaturasComponent, {
+      height: '400px',
+      width: '1300px',
+      data: viatura
+    });
+    dialog.afterClosed().subscribe(atualizar => {
+      if (atualizar) {
+        this.listar();
+      }
+    });
+  }
+
+  onDialogDetails(viatura: Viaturas) {
+    const dialog = this.dialog.open(ViaturasDetailsComponent, {
       height: '400px',
       width: '1300px',
       data: viatura
