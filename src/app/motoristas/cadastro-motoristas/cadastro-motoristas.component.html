@@ -13,7 +13,7 @@
 
           <div fxFlex="100"  fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15px">
             <mat-form-field fxFlex="10" >
-              <input matInput type="text" placeholder="Identidade" formControlName="identidade">
+              <input matInput type="text" placeholder="Identidade" formControlName="identidade" [textMask]="{mask: maskIdentidade}">
               <mat-error *ngIf="motoristaForm.controls.identidade.hasError('required')">
                 Por favor informe a identidade.
               </mat-error>

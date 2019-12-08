@@ -14,6 +14,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {ViaturasModule} from './viaturas/viaturas.module';
+import {UsuariosModule} from "./usuarios/usuarios.module";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {ViaturasModule} from './viaturas/viaturas.module';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    ViaturasModule
+    ViaturasModule,
+    UsuariosModule
   ],
   providers: [],
   bootstrap: [AppComponent]

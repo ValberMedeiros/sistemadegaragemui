@@ -12,6 +12,7 @@ import {ConfirmDialog, ListaMotoristasComponent} from './lista-motoristas/lista-
 import { MatTableModule, MatPaginatorIntl } from '@angular/material';
 import { CdkColumnDef } from '@angular/cdk/table';
 import { AtualizarMotoristasComponent } from './atualizar-motoristas/atualizar-motoristas.component';
+import {TextMaskModule} from "angular2-text-mask";
 
 const appRouter: Routes = [
   {path: 'motoristas/cadastro', component: CadastroMotoristasComponent}
@@ -32,7 +33,8 @@ const appRouter: Routes = [
     HttpClientModule,
     SharedModule,
     MatTableModule,
-    RouterModule.forChild(appRouter)
+    RouterModule.forChild(appRouter),
+    TextMaskModule
   ],
   providers: [
     CdkColumnDef,

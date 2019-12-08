@@ -20,6 +20,8 @@ export class CadastroMotoristasComponent implements OnInit {
   motoristaForm: FormGroup;
   postoGraduacao: PostoGraduacaoMotorista[] = [];
 
+  public maskIdentidade = [ /[1-9]/, /\d/, /\d/, /\d/, /\d/, /\d/,  /\d/,  /\d/,  /\d/,'-', /\d/];
+
   constructor(
     private formBuilder: FormBuilder,
     private postoGraduacaoService: PostoGraduacaoService,
@@ -36,7 +38,7 @@ export class CadastroMotoristasComponent implements OnInit {
 
     this.motoristaForm = this.formBuilder.group({
       id: [''],
-      identidade: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+      identidade: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(11)]],
       postoGraduacaoMotorista: [[], [Validators.required]],
       nomeCompleto: ['', [Validators.required, Validators.minLength(10)]],
       nomeDeGuerra: ['', [Validators.required]],

@@ -1,0 +1,40 @@
+.verde {
+  background-color: rgb(124, 243, 124) !important;
+  width: 105px;
+  color: black !important;
+}
+
+.vermelho {
+  background-color: rgb(212, 55, 55) !important;
+  width: 105px;
+  color: black !important;
+}
+
+.mat-column-identidade {
+  max-width: 120px;
+  justify-content: center;
+}
+
+.mat-column-postoGraduacao {
+  max-width: 200px;
+  justify-content: center;
+}
+
+.mat-column-nomeCompleto {
+  max-width: 480px;
+}
+
+.mat-column-nomeDeGuerra {
+  max-width: 240px;
+  justify-content: center;
+}
+
+.mat-column-username {
+  max-width: 240px;
+  justify-content: center;
+}
+
+.mat-column-options {
+  max-width: 180px;
+  justify-content: center;
+}

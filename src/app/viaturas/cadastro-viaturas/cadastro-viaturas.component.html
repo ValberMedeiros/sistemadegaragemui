@@ -1,0 +1,131 @@
+<div layout="column" layout-fill>
+  <div align="center" layout="row" layout-align="center center">
+
+    <mat-card class="mat-elevation-z8" flex="80" style="margin-top: 60px; width: 1240px;">
+
+      <mat-card-title>Cadastrar Viatura</mat-card-title>
+      <mat-card-subtitle>
+      </mat-card-subtitle>
+
+      <mat-card-content fxLayout="column" fxLayoutAlign="stretch" >
+
+        <form [formGroup]="viaturaForm" fxLayout="column" fxLayoutAlign="start stretch" (ngSubmit)="onSubmit()">
+
+          <div fxFlex="100"  fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15px">
+            <mat-form-field fxFlex="50" >
+              <input matInput type="text" placeholder="Modelo" formControlName="modelo">
+              <mat-error *ngIf="viaturaForm.controls.modelo.hasError('required')">
+                Informe o modelo.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="15" >
+              <input matInput type="text" placeholder="Placa" formControlName="placa">
+              <mat-error *ngIf="viaturaForm.controls.placa.hasError('required')">
+                Por favor informe a placa.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="15">
+              <input matInput type="number" placeholder="Renavan" formControlName="renavan">
+              <mat-error *ngIf="viaturaForm.controls.renavan.hasError('required')">
+                Informe o renavan.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="20" >
+              <input matInput type="text" placeholder="Chassi" formControlName="chassi">
+              <mat-error *ngIf="viaturaForm.controls.chassi.hasError('required')">
+                Informe o chassi.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxFlex="100"  fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15px">
+            <mat-form-field fxFlex="15" >
+              <mat-label>
+                Combustível
+              </mat-label>
+              <mat-select formControlName="combustivel">
+                <mat-option *ngFor="let combustivel of combustivelOptions" [value]="combustivel.id">
+                  {{combustivel.name | combustivelPipe}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="viaturaForm.controls.combustivel.hasError('required')">
+                Informe o o combustível da viatura.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="14" >
+              <input matInput type="number" placeholder="Capacidade do tanque" formControlName="capacidadeDoTanque">
+              <mat-error *ngIf="viaturaForm.controls.capacidadeDoTanque.hasError('required')">
+                Informe a capacidade do tanque.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="15" >
+              <input matInput type="number" placeholder="Autonômia" formControlName="autonomia">
+              <mat-error *ngIf="viaturaForm.controls.autonomia.hasError('required')">
+                Informe a autonômia.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="15" >
+              <input matInput type="number" placeholder="Quantidade de portas" formControlName="quantidadeDePortas">
+              <mat-error *ngIf="viaturaForm.controls.quantidadeDePortas.hasError('required')">
+                Informe a quantidade de portas.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="15" >
+              <input matInput type="number" placeholder="Capacidade de passageiros" formControlName="capacidadePassageiros">
+              <mat-error *ngIf="viaturaForm.controls.capacidadePassageiros.hasError('required')">
+                Informe a capacidade de passageiros.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="20" >
+              <input matInput type="text" placeholder="Utilização" formControlName="utilizacao">
+              <mat-error *ngIf="viaturaForm.controls.utilizacao.hasError('required')">
+                Informe a utilizacao.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxFlex="100"  fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15px">
+
+            <mat-form-field fxFlex="15" >
+              <input matInput type="text" placeholder="NEE" formControlName="nee">
+              <mat-error *ngIf="viaturaForm.controls.nee.hasError('required')">
+                Informe o NEE.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="14" >
+              <input matInput type="text" placeholder="EB" formControlName="eb">
+              <mat-error *ngIf="viaturaForm.controls.nee.hasError('required')">
+                Informe o EB.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="15" >
+              <mat-label>
+                Status da Viatura
+              </mat-label>
+              <mat-select formControlName="statusViatura">
+                <mat-option *ngFor="let status of statusViaturasOptions" [value]="status.id">
+                  {{status.name | statusViatura}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="viaturaForm.controls.statusViatura.hasError('required')">
+                Informe o o status da viatura.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <button mat-button color="warn" (click)="onUndo()">
+              <mat-icon>undo</mat-icon>Voltar
+            </button>
+            <button mat-button color="primary" type="submit" [disabled]="viaturaForm.invalid">
+              <mat-icon>done</mat-icon>Cadastrar
+            </button>
+          </div>
+
+        </form>
+
+      </mat-card-content>
+      <mat-card-footer>
+
+      </mat-card-footer>
+    </mat-card>
+
+  </div>
+</div>
