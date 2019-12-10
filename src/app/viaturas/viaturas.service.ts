@@ -12,7 +12,7 @@ export class ViaturasService {
     private http: HttpClient
   ) { }
 
-  readonly url = 'http://localhost:8080/sistemadegaragem/viaturas';
+  readonly url = 'http://localhost/sistemadegaragem/viaturas';
 
   listar(): Observable<Viaturas[]> {
     return this.http.get<Viaturas[]>(this.url);

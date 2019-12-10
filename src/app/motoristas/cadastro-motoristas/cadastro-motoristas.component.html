@@ -70,7 +70,7 @@
               </mat-label>
               <mat-select formControlName="statusMotorista">
                 <mat-option *ngFor="let status of statusMotoristasOptions" [value]="status.id">
-                  {{status.name | statusMotorista}}
+                  {{ status.name | statusMotorista}}
                 </mat-option>
               </mat-select>
               <mat-error *ngIf="motoristaForm.controls.statusMotorista.hasError('required')">

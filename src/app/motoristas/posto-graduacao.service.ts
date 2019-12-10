@@ -8,7 +8,7 @@ import { PostoGraduacaoMotorista } from './models/PostoGraduacao.model';
 })
 export class PostoGraduacaoService {
 
-  readonly url = `http://localhost:8080/sistemadegaragem/motoristas`;
+  readonly url = `http://localhost/sistemadegaragem/motoristas`;
 
   constructor(private http: HttpClient) { }
 

@@ -6,6 +6,7 @@ import {AtualizarMotoristasComponent} from './motoristas/atualizar-motoristas/at
 import {ListaViaturasComponent} from './viaturas/lista-viaturas/lista-viaturas.component';
 import {CadastroViaturasComponent} from "./viaturas/cadastro-viaturas/cadastro-viaturas.component";
 import {ListaUsuariosComponent} from "./usuarios/lista-usuarios/lista-usuarios.component";
+import {CadastroUsuariosComponent} from "./usuarios/cadastro-usuarios/cadastro-usuarios.component";
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'viaturas', component: ListaViaturasComponent },
   { path: 'viaturas/cadastro', component: CadastroViaturasComponent },
 
-  { path: 'usuarios', component: ListaUsuariosComponent }
+  { path: 'usuarios', component: ListaUsuariosComponent },
+  { path: 'usuarios/cadastro', component: CadastroUsuariosComponent }
 ];
 
 @NgModule({

@@ -10,7 +10,7 @@ export class MotoristasService {
 
   constructor(private http: HttpClient) { }
 
-  readonly url = 'http://localhost:8080/sistemadegaragem/motoristas';
+  readonly url = 'http://localhost/sistemadegaragem/motoristas';
 
   cadastrar(motorista: Motoristas) {
     return this.http.post<Motoristas>(this.url, motorista);

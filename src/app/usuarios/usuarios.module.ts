@@ -4,16 +4,22 @@ import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.componen
 import {HttpClientModule} from "@angular/common/http";
 import {MaterialModule} from "../material.module";
 import {TextMaskModule} from "angular2-text-mask";
+import { CadastroUsuariosComponent } from './cadastro-usuarios/cadastro-usuarios.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {AppRoutingModule} from "../app-routing.module";
 
 
 
 @NgModule({
-  declarations: [ListaUsuariosComponent],
+  declarations: [ListaUsuariosComponent, CadastroUsuariosComponent],
   imports: [
     CommonModule,
     HttpClientModule,
     MaterialModule,
-    TextMaskModule
+    TextMaskModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
   ]
 })
 export class UsuariosModule { }
