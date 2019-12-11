@@ -30,4 +30,12 @@ export class UsuariosService {
     return this.http.get<Role[]>(`${this.url}/roles`);
   }
 
+  buscarPorId(usuario: Usuarios): Observable<Usuarios> {
+    return this.http.get<Usuarios>(`${this.url}/${usuario.id}`);
+  }
+
+  atualizar(usuario: Usuarios): Observable<Usuarios> {
+    return this.http.put<Usuarios>(`${this.url}/${usuario.id}`, usuario);
+  }
+
 }

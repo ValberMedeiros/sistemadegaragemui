@@ -66,7 +66,7 @@
       <button mat-icon-button color="primary" matTooltip="Detalhar Usuário">
         <mat-icon>visibility</mat-icon>
       </button>
-      <button mat-icon-button color="accent" matTooltip="Editar Usuário">
+      <button mat-icon-button color="accent" matTooltip="Editar Usuário" (click)="onDialogUpdate(usuario)">
         <mat-icon>edit</mat-icon>
       </button>
       <button mat-icon-button color="warn" matTooltip="Deletar Usuário" (click)="onDialogDelete(usuario)">

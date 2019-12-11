@@ -62,7 +62,7 @@ export class AtualizarMotoristasComponent implements OnInit {
         error => {
           const msg = 'Erro obtendo motorista';
           this.snackBar.open(msg, 'Erro', { duration: 3000 });
-          this.router.navigate(['/']);
+          this.router.navigate(['/motoristas']);
         }
       );
   }
@@ -85,7 +85,6 @@ export class AtualizarMotoristasComponent implements OnInit {
   }
 
   onUpdate() {
-    console.log(this.motoristaForm.value);
     this.motoristasService.atualizar(this.motoristaForm.value)
       .subscribe(() => {
         const msg = 'Motorista atualizado com sucesso!';
