@@ -2,7 +2,7 @@
 <a mat-fab class="button-add" routerLink="/usuarios/cadastro" matTooltip="Cadastrar Usuário"><mat-icon>add</mat-icon></a>
 
 <div fxLayout="column">
-  <h1 class="titulo-lista" fxFlexAlign="center">Listagem de Usuários</h1>
+  <h1 class="titulo-lista" fxFlexAlign="center">Detalhes do Usuários</h1>
   <mat-form-field>
     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar">
   </mat-form-field>
@@ -63,7 +63,7 @@
 
     </mat-header-cell>
     <mat-cell *matCellDef="let usuario" fxLayoutGap="10px">
-      <button mat-icon-button color="primary" matTooltip="Detalhar Usuário">
+      <button mat-icon-button color="primary" matTooltip="Detalhar Usuário" (click)="onDialogDetails(usuario)">
         <mat-icon>visibility</mat-icon>
       </button>
       <button mat-icon-button color="accent" matTooltip="Editar Usuário" (click)="onDialogUpdate(usuario)">

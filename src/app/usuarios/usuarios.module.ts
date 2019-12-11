@@ -10,6 +10,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AppRoutingModule} from "../app-routing.module";
 import { AtualizarUsuariosComponent } from './atualizar-usuarios/atualizar-usuarios.component';
 import {RolesPipe} from "../shared/pipes/roles.pipe";
+import { UsuariosDetailsComponent } from './usuarios-details/usuarios-details.component';
 
 
 
@@ -18,7 +19,8 @@ import {RolesPipe} from "../shared/pipes/roles.pipe";
     ListaUsuariosComponent,
     CadastroUsuariosComponent,
     AtualizarUsuariosComponent,
-    RolesPipe
+    RolesPipe,
+    UsuariosDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import {RolesPipe} from "../shared/pipes/roles.pipe";
     SharedModule
   ],
   entryComponents: [
-    AtualizarUsuariosComponent
+    AtualizarUsuariosComponent,
+    UsuariosDetailsComponent
   ]
 })
 export class UsuariosModule { }

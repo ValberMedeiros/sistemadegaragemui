@@ -1,0 +1,96 @@
+<div layout="column" layout-fill>
+  <div align="center" layout="row" layout-align="center center">
+
+    <mat-card class="mat-elevation-z8" flex="80" style="margin-top: 60px; width: 1100px;">
+
+      <mat-card-title>Atualizar Usuário</mat-card-title>
+      <mat-card-subtitle>
+      </mat-card-subtitle>
+
+      <mat-card-content fxLayout="column" fxLayoutAlign="stretch" >
+
+        <form [formGroup]="usuarioForm" fxLayout="column" fxLayoutAlign="start stretch">
+
+          <div fxFlex="100"  fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15px">
+            <mat-form-field fxFlex="10" >
+              <input matInput type="text" placeholder="Identidade" formControlName="identidade" readonly>
+              <mat-error *ngIf="usuarioForm.controls.identidade.hasError('required')">
+                Por favor informe a identidade.
+              </mat-error>
+              <mat-error *ngIf="usuarioForm.controls.identidade.hasError('minlength')">
+                Mínimo 10 numeros.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="15">
+              <mat-label>
+                Posto/Grad
+              </mat-label>
+              <mat-select formControlName="postoGraduacao" [compareWith]="compareWithPg" [(ngModel)]="pgSelect" [disabled]="true">
+                <mat-option *ngFor="let postoGrad of postoGraduacao" [value]="postoGrad">
+                  {{postoGrad.postoGrad}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="usuarioForm.controls.postoGraduacao.hasError('required')">
+                Informe o P/G.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="45" >
+              <input matInput type="text" placeholder="Nome Completo" formControlName="nomeCompleto" readonly>
+              <mat-error *ngIf="usuarioForm.controls.nomeCompleto.hasError('required')">
+                Informe o nome completo.
+              </mat-error>
+              <mat-error *ngIf="usuarioForm.controls.nomeCompleto.hasError('minlength')">
+                Mínimo 10 caracteres.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="30" >
+              <input matInput type="text" placeholder="Nome de Guerra" formControlName="nomeDeGuerra" readonly>
+              <mat-error *ngIf="usuarioForm.controls.nomeDeGuerra.hasError('required')">
+                Informe o nome de guerra.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div fxFlex="100"  fxLayout="row" fxLayoutAlign="start" fxLayoutGap="15px">
+            <mat-form-field fxFlex="10">
+              <input matInput type="text" placeholder="Nome de usuário" formControlName="username" readonly>
+              <mat-error *ngIf="usuarioForm.controls.username.hasError('required')">
+                Informe o nome de usuário.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="15" >
+              <input matInput type="password" placeholder="Senha" formControlName="password" readonly>
+              <mat-error *ngIf="usuarioForm.controls.password.hasError('required')">
+                Informe uma senha.
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex="15">
+              <mat-label>
+                Permissões
+              </mat-label>
+              <mat-select formControlName="roles" [compareWith]="compareWithFn" multiple [(ngModel)]="roleSelects" [disabled]="true">
+                <mat-option *ngFor="let role of role" [value]="role">
+                  {{role | roles}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="usuarioForm.controls.roles.hasError('required')">
+                Informe pelo menos uma permissão.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <button mat-button color="warn" [mat-dialog-close]="false" tabindex="-1">
+              <mat-icon>undo</mat-icon>Voltar
+            </button>
+          </div>
+
+        </form>
+
+      </mat-card-content>
+      <mat-card-footer>
+
+      </mat-card-footer>
+    </mat-card>
+
+  </div>
+</div>
+

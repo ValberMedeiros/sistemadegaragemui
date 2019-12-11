@@ -11,6 +11,9 @@ import {Motoristas} from "../../motoristas/models/Motoristas.model";
 import {ConfirmDialog} from "../../motoristas/lista-motoristas/lista-motoristas.component";
 import {AtualizarMotoristasComponent} from "../../motoristas/atualizar-motoristas/atualizar-motoristas.component";
 import {AtualizarUsuariosComponent} from "../atualizar-usuarios/atualizar-usuarios.component";
+import {Viaturas} from "../../viaturas/models/Viaturas.model";
+import {ViaturasDetailsComponent} from "../../viaturas/viaturas-details/viaturas-details.component";
+import {UsuariosDetailsComponent} from "../usuarios-details/usuarios-details.component";
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -88,6 +91,19 @@ export class ListaUsuariosComponent implements OnInit {
     const dialog = this.dialog.open(AtualizarUsuariosComponent, {
       height: '400px',
       width: '1200px',
+      data: usuario
+    });
+    dialog.afterClosed().subscribe(atualizar => {
+      if (atualizar) {
+        this.listar();
+      }
+    });
+  }
+
+  onDialogDetails(usuario: Usuarios) {
+    const dialog = this.dialog.open(UsuariosDetailsComponent, {
+      height: '400px',
+      width: '1300px',
       data: usuario
     });
     dialog.afterClosed().subscribe(atualizar => {
